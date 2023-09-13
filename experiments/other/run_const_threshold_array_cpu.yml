@@ -1,0 +1,27 @@
+tag: 'const_threshold_array_cpu'
+output_path: './experiments/sessions/const_threshold/'
+eval: True
+sample_size: 150
+
+# CoalNN parameters
+run_CoalNN: True
+n_workers: 6
+gpu: False
+batch_size: 64
+
+# asmc parameters
+asmc: False
+asmc_batch_size: 64
+decoding_quantities: ./files/decoding-quantities/10-20-2000.decodingQuantities.gz
+
+# msprime simulation
+sample_size_run: 150
+Ne: 10000
+muration_rate: 1.65e-8
+chr: 2
+chr_region: 1
+demography: ./files/demography/CEU.demo
+array: True
+
+# Transformation and features
+downsample_size: 150

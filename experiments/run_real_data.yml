@@ -1,0 +1,21 @@
+tag: 'run'
+output_path: './experiments/sessions/real_data/1000_Genome_Project_hg38_phase_3/'
+
+# CoalNN parameters
+run_CoalNN: True
+batch_size: 32
+n_workers: 6
+gpu: True
+constant_piecewise_output: False
+# const_threshold: 0.1
+
+# dating variants
+dating_mode: arithmetic
+remove_singletons: False
+filter_outliers: True
+
+# 1000G data
+reference_genome: hg38
+samples_info: ./files/1kGP/20130606_g1k_3202_samples_ped_population.txt
+chr: 22
+path_data: ./files/1kGP/1000G_3202_high_coverage_30x_phased_GRCh38_20201028/CCDG_14151_B01_GRM_WGS_2020-08-05_chr22.filtered.shapeit2-duohmm-phased

@@ -1,0 +1,77 @@
+tag: 'train'
+output_path: './experiments/sessions/msprime.1.0/debug/'
+
+# Training
+batch_size: 32
+n_epochs: 100
+n_epochs_convergence: 300
+n_early_stopping: 100
+n_simulate_training_set: 1
+n_learning_rate_update: 20
+learning_rate_update: 2
+print_iterations: 100
+vis_epochs: 1
+val_epochs: 1
+n_workers: 6
+gpu: True
+
+# Optimiser
+resume_training: False
+learning_rate: 0.001
+weight_decay: 0
+multi_task_loss: True
+weighted_loss: False
+
+# msprime simulation
+num_simulations: 6
+seed_val: 1
+sample_size_train: 100
+sample_size_val: 100
+Ne: 10000
+muration_rate: 1.65e-8
+# rec_rate: 1e-8
+# length: 30.e6
+reference_genome: hg19
+demography: CEU
+data_type: sequence
+use_offset: False
+sample_size_offset: 75
+offset_range: [20,200]
+switch_error_rate: 0.001
+gntp_error_rate: 0.001
+# gene_conversion_rate: 6.e-8
+# gene_conversion_tract_length: 300
+# vis_chr_length: 0.1
+# ref_size: 15
+
+# Transformation and features
+log_tmrca: True
+transform: random_crop
+feature_maf: True
+feature_cm: True
+feature_bp: True
+feature_ibs: True
+downsample_size: 100
+const_piecewise: True
+# const_threshold: 0.5
+do_threading_sampler: True
+threading_sampler: True
+# threading_threshold: 0.8
+val_threading_sampler: False
+
+# ASMC comparison
+asmc_vis: False
+asmc_batch_size: 64
+decoding_quantities:
+  ./files/decoding-quantities/CEU.popsizes_1kg.generations.mu1.65E-8.haploids.10-20-2000.decodingQuantities.gz
+
+model:
+  'network': cnn
+  # 'latent_len_frac': 0.1
+  # 'latent_dim': 16
+  # 'depth': 3
+  'h_dim': [8, 16, 32, 64, 128]
+  'kernel_size': [701, 201, 51, 7, 3]
+  'bin' : 10
+  'bin_unit': cM
+  'restriction_activation': False

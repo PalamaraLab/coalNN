@@ -1,0 +1,31 @@
+tag: 'run'
+output_path: './experiments/sessions/msprime.1.0/sequence/visualise/CEU/'
+sample_size: 150
+eval: True
+
+# CoalNN parameters
+batch_size: 64
+run_CoalNN: True
+n_workers: 6
+gpu: True
+constant_piecewise_output: True
+const_threshold: 0.7
+
+# asmc parameters
+asmc_vis: False
+asmc: False
+asmc_batch_size: 64
+decoding_quantities: ./files/decoding-quantities/10-20-2000.decodingQuantities.gz
+
+# msprime simulation
+sample_size_run: 150
+Ne: 10000
+muration_rate: 1.65e-8
+chr: 2
+chr_region: 1
+chr_length: 30
+vis_chr_length: 0.1
+demography: CEU
+
+# Transformation and features
+downsample_size: 150

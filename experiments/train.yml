@@ -1,0 +1,67 @@
+tag: 'train'
+output_path: './experiments/sessions/train'
+
+# Training
+batch_size: 64
+n_epochs: 300
+n_epochs_convergence: 300
+n_early_stopping: 30
+n_simulate_training_set: 1
+n_learning_rate_update: 300
+learning_rate_update: 2
+print_iterations: 100
+vis_epochs: 1
+val_epochs: 1
+n_workers: 6
+gpu: True
+
+# Optimiser
+resume_training: False
+learning_rate: 0.001
+weight_decay: 0
+multi_task_loss: True
+weighted_loss: False
+
+# msprime simulation
+num_simulations: 64
+seed_val: 1
+sample_size_train: 150
+sample_size_val: 150
+Ne: 10000
+muration_rate: 1.65e-8
+# rec_rate: 1e-8
+# length: 30.e6
+gc_rate: 0
+reference_genome: hg19
+demography: constant
+data_type: sequence
+# vis_chr_length: 0.1
+# ref_size: 15
+use_offset: False
+# sample_size_offset: 75
+# offset_range: [20,200]
+switch_error_rate: 0
+gntp_error_rate: 0
+
+# Transformation and features
+log_tmrca: True
+transform: random_crop
+feature_maf: True
+feature_cm: True
+feature_bp: True
+feature_ibs: True
+downsample_size: 150
+const_piecewise: True
+# const_threshold: 0.5
+do_threading_sampler: True
+threading_sampler: True
+# threading_threshold: 0.8
+val_threading_sampler: True
+
+model:
+  'network': cnn
+  'h_dim': [8, 16, 32, 64, 128]
+  'kernel_size': [701, 201, 51, 7, 3]
+  'bin' : 10
+  'bin_unit': cM
+  'restriction_activation': False

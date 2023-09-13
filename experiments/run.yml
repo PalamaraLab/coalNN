@@ -1,0 +1,41 @@
+tag: 'run'
+output_path: './experiments/sessions/run'
+sample_size: 150
+eval: True
+scatter_plot: False
+batch_size: 64
+run_last_bin: True
+
+# CoalNN parameters
+run_CoalNN: True
+n_workers: 6
+gpu: True
+constant_piecewise_output: False
+const_threshold: 0.7
+
+# interpretability analysis
+saliency_map: False
+n_pairs_saliency_map: 100
+tmrca_lower_bound: 500
+tmrca_upper_bound: 100000
+visualise_first_layer: False
+
+
+# msprime simulation
+sample_size_run: 150
+# ref_size: 500
+Ne: 10000
+muration_rate: 1.65e-8
+gc_rate: 0
+# rec_rate: 1.e-8
+# length: 20000000
+chr: 2
+chr_region: 1
+chr_length: 30
+demography: CEU
+reference_genome: hg19
+switch_error_rate: 0
+gntp_error_rate: 0
+
+# Transformation and features
+downsample_size: 150

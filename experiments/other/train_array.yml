@@ -1,0 +1,69 @@
+tag: 'train'
+output_path: './experiments/sessions/msprime.1.0/array/train/constant_10000/noTransferLearning/'
+
+# Training
+batch_size: 64
+n_epochs: 300
+n_epochs_convergence: 300
+n_early_stopping: 100
+n_simulate_training_set: 1
+n_learning_rate_update: 20
+learning_rate_update: 2
+print_iterations: 100
+vis_epochs: 1
+val_epochs: 1
+n_workers: 8
+gpu: True
+
+# Optimiser
+resume_training: False
+learning_rate: 0.001
+weight_decay: 0
+multi_task_loss: True
+weighted_loss: False
+
+# msprime simulation
+num_simulations: 64
+seed_val: 1
+sample_size_train: 150
+sample_size_val: 150
+Ne: 10000
+muration_rate: 1.65e-8
+demography: constant
+data_type: array
+# ref_size: 500
+
+# Transformation and features
+log_tmrca: True
+transform: random_crop
+feature_maf: True
+feature_cm: True
+feature_bp: True
+feature_ibs: True
+downsample_size: 150
+const_piecewise: True
+threading_sampler: True
+# threading_threshold: 0.8
+val_threading_sampler: True
+
+# ASMC comparison
+asmc_vis: False
+asmc_batch_size: 64
+decoding_quantities:
+  ./files/decoding-quantities/CEU.popsizes_1kg.generations.mu1.65E-8.haploids.10-20-2000.decodingQuantities.gz
+
+# Model parameters
+# model:
+#  'network': resnet
+#  'n_layers': 10
+#  'n_channels': 64
+#  'bin': 3
+#  'bin_unit': cM
+
+model:
+  'network': cnn
+  'h_dim': [8, 16, 32, 64, 128]
+  'kernel_size': [701, 201, 51, 7, 3]
+  'bin' : 10
+  'bin_unit': cM
+  'restriction_activation': False

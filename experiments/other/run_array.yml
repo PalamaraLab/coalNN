@@ -1,0 +1,30 @@
+tag: 'run'
+output_path: './experiments/sessions/msprime.1.0/array/misspecified_demo/CEU_optimized/constant_10000/asmc/'
+sample_size: 150
+eval: True
+scatter_plot: False
+
+# CoalNN parameters
+run_CoalNN: False
+n_workers: 6
+gpu: False
+constant_piecewise_output: False
+const_threshold: 0.1
+
+# asmc parameters
+asmc: True
+asmc_batch_size: 64
+decoding_quantities:
+  ./files/decoding-quantities/CEU.popsizes_1kg.generations.mu1.65E-8.haploids.10-20-2000.decodingQuantities.gz
+
+# msprime simulation
+sample_size_run: 150
+Ne: 10000
+muration_rate: 1.65e-8
+chr: 2
+chr_region: 1
+chr_length: 30
+demography: constant
+
+# Transformation and features
+downsample_size: 150
